@@ -30,21 +30,35 @@
                 <form action="{{ route($action) }}" method="{{ $method }}">
                     @csrf
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mt-4">
-                        <div><label class="text-gray-700" for="username">Name</label><input
+                        <div><label class="text-gray-700" for="name">Name</label><input
                                 class="w-full mt-2 rounded-md focus:border-indigo-600" type="text" name="name"
                                 value="{{ old('name') }}"></div>
-                        <div><label class="text-gray-700" for="emailAddress">Articul</label><input
+                        <div><label class="text-gray-700" for="art">Articul</label><input
                                 class="w-full mt-2 rounded-md focus:border-indigo-600" type="text" name="art"
                                 value="{{ old('art') }}"></div>
-                        <div><label class="text-gray-700" for="password">Status</label>
+                        <div><label class="text-gray-700" for="status">Status</label>
                             <select class="appearance-none w-full mt-2 rounded-md focus:border-indigo-600"
                                     name="status">
                                 @foreach($status as $option)
                                     <option value="{{ $option }}">{{ ucfirst($option) }}</option>
                                 @endforeach
                             </select></div>
-                        <div><label class="text-gray-700" for="passwordConfirmation">Data</label><input
-                                class="w-full mt-2 rounded-md focus:border-indigo-600" type="password"></div>
+                        <div><label class="text-gray-700" for="color">Color</label>
+                            <select class="appearance-none w-full mt-2 rounded-md focus:border-indigo-600"
+                                    name="data[color]">
+                                @foreach($colors as $color)
+                                    <option
+                                        value="{{ $color }}"{{ !empty(old('data')['color']) && old('data')['color'] == $color ? ' selected' : '' }}>{{ ucfirst($color) }}</option>
+                                @endforeach
+                            </select></div>
+                        <div><label class="text-gray-700" for="size">Size</label>
+                            <select class="appearance-none w-full mt-2 rounded-md focus:border-indigo-600"
+                                    name="data[size]">
+                                @foreach($sizes as $size)
+                                    <option
+                                        value="{{ $size }}"{{ !empty(old('data')['size']) && old('data')['size'] == $size ? ' selected' : '' }}>{{ ucfirst($size) }}</option>
+                                @endforeach
+                            </select></div>
                     </div>
                     <div class="flex justify-end mt-4">
                         <button

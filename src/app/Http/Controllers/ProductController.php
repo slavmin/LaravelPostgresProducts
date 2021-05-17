@@ -9,6 +9,11 @@ use Illuminate\Validation\Rule;
 
 class ProductController extends Controller
 {
+    public function __construct(Product $product)
+    {
+        $this->options = Product::getOptions();
+    }
+
     public function index()
     {
         $products = Product::orderBy('id', 'desc')->get();
@@ -32,6 +37,8 @@ class ProductController extends Controller
         return view('products.create')
             ->with('method', 'POST')
             ->with('action', 'product.store')
+            ->with('colors', $this->options['colors'])
+            ->with('sizes', $this->options['sizes'])
             ->with('status', ['available', 'unavailable']);
     }
 
@@ -60,6 +67,8 @@ class ProductController extends Controller
         return view('products.edit', compact('product'))
             ->with('method', 'POST')
             ->with('action', 'product.update')
+            ->with('colors', $this->options['colors'])
+            ->with('sizes', $this->options['sizes'])
             ->with('status', ['available', 'unavailable']);
     }
 

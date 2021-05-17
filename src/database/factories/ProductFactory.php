@@ -22,10 +22,10 @@ class ProductFactory extends Factory
     public function definition()
     {
         return [
-            'art'    => mb_strtoupper($this->faker->unique()->bothify('???#########')),
-            'name'   => $this->faker->sentence(2),
+            'art' => mb_strtoupper($this->faker->unique()->bothify('???#########')),
+            'name' => $this->faker->sentence(2),
             'status' => $this->faker->randomElement(['available', 'unavailable']),
-            'data'   => ['color' => $this->faker->safeColorName, 'size' => $this->faker->randomElement(['XS', 'S', 'M', 'L', 'XL', 'XXL'])],
+            'data' => ['color' => $this->faker->randomElement(['white', 'black', 'green', 'olive', 'silver', 'purple', 'navy']), 'size' => $this->faker->randomElement(['XS', 'S', 'M', 'L', 'XL', 'XXL'])],
         ];
     }
 }
