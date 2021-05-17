@@ -1,3 +1,9 @@
+## About
+
+This is an example of Laravel app with Products management.
+
+DEMO: [Laravel-Postgres-Products](https://damp-reaches-32786.herokuapp.com/).
+
 # docker-compose-laravel
 A pretty simplified Docker Compose workflow that sets up a LEMP network of containers for local Laravel development. You can view the full article that inspired this repo [here](https://dev.to/aschmelyun/the-beauty-of-docker-for-local-laravel-development-13c0).
 
